@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aprenda a fazer a sua série | Decisão Animada</title>
-  <meta name="description" content="O método por trás da Decisão Animada, do roteiro com votação ao vídeo pronto. Lista de espera.">
+  <meta name="description" content="O método por trás da Decisão Animada, do roteiro com votação ao vídeo pronto. Guia em PDF.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Aprenda a fazer a sua série | Decisão Animada">
-  <meta property="og:description" content="O método por trás da Decisão Animada, do roteiro com votação ao vídeo pronto. Lista de espera.">
+  <meta property="og:description" content="O método por trás da Decisão Animada, do roteiro com votação ao vídeo pronto. Guia em PDF.">
   <meta property="og:image" content="https://decisao.otymizze.com.br/og.jpg">
   <meta name="theme-color" content="#07201a">
   <link rel="icon" href="/avatar.jpg">
@@ -39,6 +39,9 @@
     .btn:focus-visible, .btn:hover { outline:3px solid #fff; outline-offset:2px; }
     .note { font-size:.82rem; color:var(--soft); margin-top:10px; }
     .rules li { margin-top:8px; }
+    .fld { display:block; margin-top:12px; font-size:.85rem; color:var(--soft); font-weight:600; }
+    .fld input { display:block; width:100%; margin-top:6px; padding:13px 14px; border-radius:12px; border:1px solid var(--line); background:#06231c; color:#fff; font-size:1rem; }
+    .code { width:100%; margin-top:6px; padding:10px; border-radius:12px; border:1px solid var(--line); background:#06231c; color:#fff; font-size:.8rem; resize:none; }
     footer { margin-top:36px; text-align:center; font-size:.78rem; color:var(--soft); } footer p + p { margin-top:6px; } footer a { color:var(--soft); }
   </style>
 </head>
@@ -48,33 +51,52 @@
 
   <h1>Aprenda a fazer a sua série</h1>
   <p class="lead">O método por trás da Decisão Animada, do roteiro com votação ao vídeo pronto: o que a gente aprendeu fazendo a nossa própria série, passo a passo.</p>
-  <span class="badge">Em produção: lista de espera</span>
+  <span class="badge">À venda: acesso na hora</span>
 
   <div class="card hl">
-    <div class="small">Preço previsto de lançamento</div>
+    <div class="small">Guia completo em PDF (13 páginas)</div>
     <div class="price">R$ 37,90</div>
-    <p class="small">Pagamento por Pix, com acesso na confirmação. O curso ainda não está à venda.</p>
-    <a class="btn" href="https://ig.me/m/decisao.animada" rel="noopener">Entrar na lista de espera</a>
-    <p class="note">Mande “curso” por mensagem no Instagram. Quem estiver na lista é avisado primeiro, sem compromisso de compra.</p>
+    <p class="small">Pix com confirmação automática: pagou, o download aparece nesta tela.</p>
+    <a class="btn" id="btn-curso" href="#comprar">Quero o guia</a>
+
+    <div id="pix-box" hidden>
+      <form id="pix-form" novalidate style="margin-top:14px">
+        <label class="fld">Seu e-mail (só para gerar o Pix, não guardamos)<input id="f-email" type="email" autocomplete="email" placeholder="voce@exemplo.com" maxlength="120" required></label>
+        <button class="btn" id="btn-gerar" type="submit">Gerar Pix de R$ 37,90</button>
+      </form>
+      <div id="pix-result" hidden>
+        <img id="pix-qr" alt="QR Code do Pix" width="200" height="200" style="display:none;margin:12px auto 0;border-radius:12px;background:#fff;padding:8px">
+        <p class="note">Ou use o Pix Copia e Cola:</p>
+        <textarea id="pix-code" class="code" readonly rows="3"></textarea>
+        <button class="btn ghost" id="btn-copiar" type="button">Copiar código Pix</button>
+      </div>
+      <a class="btn" id="btn-baixar" href="#" hidden>Baixar o PDF</a>
+      <p class="note" id="pix-msg" role="status" aria-live="polite"></p>
+      <p class="note">Baixe e guarde o arquivo. Se algo der errado, mande o comprovante por mensagem para o @decisao.animada. Este site não recebe nem guarda dados de pagamento.</p>
+    </div>
   </div>
 
-  <h2>O que o curso vai ensinar</h2>
+  <h2>O que tem no guia</h2>
   <ol class="mod">
-    <li><div><b>Uma ideia que divide o público.</b><br><span class="small">Como montar um dilema em que os dois lados pesam igual e ninguém vota no óbvio.</span></div></li>
-    <li><div><b>O roteiro de cada capítulo.</b><br><span class="small">Estrutura de série: cada escolha nasce da anterior e cobra um preço.</span></div></li>
-    <li><div><b>Personagem consistente com IA.</b><br><span class="small">Folha de personagem e imagens verticais que mantêm o mesmo rosto do começo ao fim.</span></div></li>
-    <li><div><b>Narração com voz natural.</b><br><span class="small">Voz em português do Brasil, com emoção, sem cara de robô.</span></div></li>
-    <li><div><b>Montagem do vídeo.</b><br><span class="small">Planos, legendas, selos, música e áudio no ponto para o celular.</span></div></li>
-    <li><div><b>Votação nos comentários.</b><br><span class="small">Contagem transparente, com a mesma regra para todos, e como mostrar o resultado.</span></div></li>
-    <li><div><b>Como a série se sustenta.</b><br><span class="small">Apoio dos fãs, marcas dentro da história e como cobrar com confirmação automática.</span></div></li>
+    <li><div><b>O formato e a lógica do voto.</b><br><span class="small">Estrutura de um capítulo de 100 segundos e por que o público volta.</span></div></li>
+    <li><div><b>O dilema com peso igual.</b><br><span class="small">Testes para saber se a escolha divide o público ou se é óbvia.</span></div></li>
+    <li><div><b>Roteiro e narração.</b><br><span class="small">Regras de escrita para voz, modelo de pedido à IA e as duas versões do próximo capítulo.</span></div></li>
+    <li><div><b>Personagem consistente com IA, de graça.</b><br><span class="small">Ficha do personagem, parágrafo fixo, imagem de referência e os problemas que tivemos.</span></div></li>
+    <li><div><b>Voz brasileira com emoção.</b><br><span class="small">Campo de estilo, geração por blocos e marcas de tempo das palavras.</span></div></li>
+    <li><div><b>Montagem.</b><br><span class="small">Painel, selos, música, comando de áudio no ponto e dicas para computador fraco.</span></div></li>
+    <li><div><b>Votos e rotina.</b><br><span class="small">Contagem justa com regras públicas, horário de postagem, legenda e capa.</span></div></li>
+    <li><div><b>Como ganhar dinheiro.</b><br><span class="small">Cúmplice, negócios na história, Pix automático e cuidados fiscais.</span></div></li>
+    <li><div><b>Plano dos 30 primeiros dias e checklist.</b><br><span class="small">O que fazer em cada fase antes de postar.</span></div></li>
   </ol>
 
-  <h2>Antes de decidir</h2>
+  <h2>Antes de comprar</h2>
   <div class="card">
     <ul class="perks rules" style="margin-top:0">
+      <li><b>É um guia em PDF</b> com texto, tabelas e modelos prontos de pedido. Não são aulas em vídeo.</li>
       <li><b>Sem promessa de ganhos.</b> Os resultados dependem do trabalho e do público de cada pessoa. Não vendemos dinheiro fácil.</li>
-      <li><b>Exemplos reais.</b> Tudo o que for ensinado foi feito na nossa série, ainda em produção, com os acertos e os erros.</li>
-      <li><b>Quando abre?</b> Assim que o conteúdo estiver pronto e testado. Nada é cobrado antes disso.</li>
+      <li><b>Exemplos reais.</b> Tudo o que está no guia foi feito na nossa própria série, com os acertos e os erros. A série ainda é nova.</li>
+      <li><b>Ferramentas gratuitas</b> (os planos gratuitos mudam com o tempo; confira os atuais).</li>
+      <li><b>Uso pessoal:</b> proibido revender ou redistribuir o arquivo.</li>
     </ul>
   </div>
 
@@ -84,5 +106,58 @@
     <p><a href="https://www.instagram.com/decisao.animada/" rel="noopener">@decisao.animada</a></p>
   </footer>
 </main>
+<script>
+  var API_URL = "https://decisao-pix.joaofelipealf.workers.dev";
+  var box = document.getElementById('pix-box'), msg = document.getElementById('pix-msg'), timer = null, tries = 0;
+  var dl = document.getElementById('btn-baixar');
+  function store(k, v) { try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function liberar(ref) {
+    document.getElementById('pix-form').hidden = true; document.getElementById('pix-result').hidden = true;
+    dl.href = API_URL + "/entrega?ref=" + encodeURIComponent(ref); dl.hidden = false; box.hidden = false;
+    msg.textContent = "Pagamento confirmado! Baixe o PDF e guarde o arquivo. Obrigado!";
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function watch(ref) {
+    stop(); tries = 0;
+    timer = setInterval(function () {
+      if (++tries > 240) { stop(); msg.textContent = "O Pix expirou. Gere um novo se ainda quiser o guia."; return; }
+      fetch(API_URL + "/status?ref=" + encodeURIComponent(ref)).then(function (r) { return r.json(); }).then(function (j) {
+        if (j.status === "approved" && j.entrega) { stop(); store('curso_ref', ref); liberar(ref); }
+      }).catch(function () {});
+    }, 5000);
+  }
+  document.getElementById('btn-curso').addEventListener('click', function (e) { e.preventDefault(); box.hidden = false; document.getElementById('f-email').focus(); });
+  // Quem já pagou e voltou à página recupera o download.
+  var antiga = load('curso_ref');
+  if (antiga && /^[0-9a-f-]{36}$/.test(antiga)) {
+    fetch(API_URL + "/status?ref=" + encodeURIComponent(antiga)).then(function (r) { return r.json(); }).then(function (j) { if (j.status === "approved" && j.entrega) liberar(antiga); }).catch(function () {});
+  }
+  document.getElementById('pix-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('f-email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = "Confira o e-mail."; return; }
+    var b = document.getElementById('btn-gerar'); b.disabled = true; msg.textContent = "Gerando o Pix...";
+    fetch(API_URL + "/pix", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ produto: "curso", email: email }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (x) {
+        b.disabled = false;
+        if (!x.ok) { msg.textContent = x.j.error || "Não foi possível gerar o Pix agora."; return; }
+        document.getElementById('pix-code').value = x.j.code;
+        var q = document.getElementById('pix-qr');
+        if (x.j.qr) { q.src = "data:image/png;base64," + x.j.qr; q.style.display = "block"; }
+        document.getElementById('pix-result').hidden = false;
+        store('curso_ref', x.j.ref);
+        msg.textContent = "Pix gerado. Pague no app do seu banco: o download aparece aqui sozinho.";
+        watch(x.j.ref);
+      }).catch(function () { b.disabled = false; msg.textContent = "Sem conexão. Tente de novo."; });
+  });
+  document.getElementById('btn-copiar').addEventListener('click', function () {
+    var t = document.getElementById('pix-code'); t.select();
+    function ok() { msg.textContent = "Código copiado! Cole no app do seu banco."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t.value).then(ok, function () { document.execCommand('copy'); ok(); }); }
+    else { try { document.execCommand('copy'); ok(); } catch (e) { msg.textContent = "Segure o código acima para copiar."; } }
+  });
+</script>
 </body>
 </html>
